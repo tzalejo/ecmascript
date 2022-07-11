@@ -28,7 +28,8 @@ Si estás usando Visual Studio Code, instala la extensión Code Runner que te pe
 
 En ECMAScript 6 ES6 y ES2015 fueron publicadas varias características nuevas que dotaron de gran poder al lenguaje, dos de estas son: parámetros por defecto y plantillas literales.
 
-En qué consisten los parámetros por defecto
+### En qué consisten los parámetros por defecto
+
 Los parámetros por defecto (default params) consisten en establecer un valor por defecto a los parámetros de una función, para asegurar que el código se ejecute correctamente en el caso de que no se establezcan los argumentos correspondientes en la invocación de la función.
 
 Tal como puedes ver en el siguiente código, la función sumar recibe dos parámetros y retorna el valor total. Sin embargo, si alguien no decide poner alguno o todos los parámetros necesarios, pues que el programa no funcionará correctamente.
@@ -72,7 +73,8 @@ sumar()      // 0
 
 Puedes utilizar cualquier valor siempre que sea necesario.
 
-Qué son las plantillas literales
+### Qué son las plantillas literales
+
 Las plantillas literales (template literals) consisten en crear cadenas de caracteres que puedan contener variables.
 
 Antes de ES6, si querías crear una cadena larga o un mensaje, debías utilizar la concatenación.
@@ -105,12 +107,14 @@ console.log(mensaje)
 
 Las siguientes características de ES6 que aprenderás son: plantilla multilínea, let y const, operador de propagación y desestructuración.
 
-Let y const, la nueva forma para declarar variables
+### Let y const, la nueva forma para declarar variables
+
 Hasta ahora aprendiste a declarar variables con var, sin embargo, a partir de la especificación de ES6 se agregaron nuevas formas para la declaración de variables.
 
 Let y const resuelven varios problemas con var como el hoisting, variables globales, re-declaración y re-asignación de variables.
 
-Scope
+#### Scope
+
 En el tema del scope, se diferencian porque let y const tienen un scope de bloque y var no.
 
 ```
@@ -122,6 +126,8 @@ let nameLet = "soy let"
 console.log(nameVar) // 'soy var'
 console.log(nameLet) // ReferenceError: nameLet is not defined
 ```
+
+#### Objeto global
 
 En variables globales, let y constno guardan sus variables en el objeto global (window, global o globalThis), mientras que var si lo guarda.
 
@@ -135,7 +141,8 @@ globalThis.nameLet // undefined
 globalThis.nameConst // undefined
 ```
 
-Variables re-declaradas y re-asignadas
+#### Variables re-declaradas y re-asignadas
+
 La re-declaración es volver a declarar una variable, y la re-asignación es volver a asignar un valor, entonces cada variable tiene una forma diferente de manejarlas:
 
 - Una variable declarada con var puede ser re-declarada y re-asignada.
@@ -173,7 +180,8 @@ nameConst = "otro const" //TypeError: Assignment to constant variable.
 
 Ten en cuenta que los errores pararán la ejecución de tu programa.
 
-Plantilla multilínea
+### Plantilla multilínea
+
 La plantilla multilínea consiste en crear mensajes que contengan varias líneas separadas entre sí, utilizando las plantillas literales.
 
 Antes de ES6, la forma de crear una plantilla multilínea era agregar \n al string.
@@ -194,10 +202,12 @@ console.log(mensaje)
 // línea 2'
 ```
 
-Desestructuración
+### Desestructuración
+
 La desestructuración (destructuring) consiste en extraer los valores de arrays o propiedades de objetos en distintas variables.
 
-Desestructuración de objetos
+#### Desestructuración de objetos
+
 La desestructuración de objetos consiste en extraer las propiedades de un objeto en variables, utilizando el mismo nombre de la propiedad en el objeto con la siguiente sintaxis:
 
 ```
@@ -233,7 +243,8 @@ console.log(edad) // 23
 console.log(plataforma) // 'Platzi'
 ```
 
-Cambiar el nombre de las variables con desestructuración
+#### Cambiar el nombre de las variables con desestructuración
+
 Si no te agrada el nombre de la propiedad del objeto, puedes cambiarlo utilizando la siguiente sintaxis:
 
 ```
@@ -257,7 +268,8 @@ console.log(platform) // 'Platzi'
 console.log(nombre) // Uncaught ReferenceError: nombre is not defined
 ```
 
-Desestructuración en parámetros de una función
+#### Desestructuración en parámetros de una función
+
 Si envías un objeto como argumento en la invocación a la declaración de una función, puedes utilizar la desestructuración en los parámetros para obtener los valores directamente. Ten en cuenta que el nombre debe ser igual a la propiedad del objeto.
 
 ```
@@ -270,7 +282,8 @@ console.log(nombre, edad, plataforma)
 mostrarDatos(usuario) // 'Andres', 23, 'Platzi'
 ```
 
-Desestructuración de arrays
+#### Desestructuración de arrays
+
 La desestructuración de objetos consiste en extraer los valores de un objeto en variables, utilizando la misma posición del array con una sintaxis similar a la desestructuración de objetos.
 
 ```
@@ -284,7 +297,8 @@ console.log(dos) // 2
 console.log(tres) // 3
 ```
 
-Desestructuración para valores retornados de una función
+#### Desestructuración para valores retornados de una función
+
 Cuando una función retorna un array, puedes guardarlo en una variable por medio de la invocación. Por ende, puedes utilizar la desestructuración para utilizar esos valores por separado de manera legible.
 
 En el siguiente ejemplo, la función useState retorna un array con dos elementos: un valor y otra función actualizadora.
@@ -303,7 +317,8 @@ const actualizador = estado[1]
 const [valor, actualizador] = useState(3)
 ```
 
-Lo que puedes hacer con desestructuración, pero no es recomendable
+#### Lo que puedes hacer con desestructuración, pero no es recomendable
+
 Si necesitas un elemento en cierta posición, puedes utilizar la separación por comas para identificar la variable que necesitas.
 
 ```
@@ -324,7 +339,8 @@ const {4: cinco} = array
 console.log(cinco) // 5
 ```
 
-Operador de propagación
+### Operador de propagación
+
 El operador de propagación (spread operator), como su nombre lo dice, consiste en propagar los elementos de un iterable, ya sea un array o stringm utilizando tres puntos (...) dentro de un array.
 
 ```
@@ -337,7 +353,8 @@ const otherArray = [ ...array] //[ 'H', 'o', 'l', 'a' ]
 
 También se utiliza para objetos, pero esta característica fue añadida en versiones posteriores de ECMAScript y es denominada \*Spread properties.
 
-Copiar arrays utilizando el operador de propagación
+#### Copiar arrays utilizando el operador de propagación
+
 Si quieres realizar una copia de una array, deberás tener cuidado de la referencia en memoria. Los arrays se guardan en una referencia en memoria, al crear una copia, la copia tendrá la misma referencia que el original, por lo que si cambias algo en la copia, también lo harás en el original.
 
 ```
@@ -361,7 +378,8 @@ copyArray // [0,2,3,4,5]
 originalArray === copyArray // false
 ```
 
-Unir arrays y añadir elementos con el operador de propagación
+#### Unir arrays y añadir elementos con el operador de propagación
+
 Para unir dos arrays con el operador de propagación, simplemente debes separarlos por comas en un array.
 
 ```
@@ -374,7 +392,8 @@ const otherArray = [ ...array1, number, ...array2 ]
 otherArray // [1,2,3,4,5,6,7]
 ```
 
-Ten cuidado con la copia para diferentes niveles de profundidad
+#### Ten cuidado con la copia para diferentes niveles de profundidad
+
 El operador de propagación sirve para crear una copia en un solo nivel de profundidad, esto quiere decir que si existen objetos o arrays dentro del array a copiar. Entonces los sub elementos en cada nivel, tendrán la misma refencia en la copia y en el original.
 
 ```
@@ -400,7 +419,8 @@ originalArray[1] === copyArray[1] // false
 
 Las siguientes características de ES6 que aprenderás son: parámetros en objetos, funciones flecha y promesas.
 
-Qué son los parámetros en objetos
+### Qué son los parámetros en objetos
+
 Los parámetros en objetos son una función que consiste en crear objetos a partir de variables sin repetir su nombre como propiedad.
 
 Antes de ES6, para crear un objeto a partir de variables consistía de la siguiente manera:
@@ -430,7 +450,8 @@ objeto // { nombre: 'Andres', edad: 23 }
 
 El resultado es el mismo, pero sin la necesidad de repetir palabras.
 
-Funciones flecha
+### Funciones flecha
+
 Las funciones flecha (arrow functions) consiste en una función anónima con la siguiente estructura:
 
 ```
@@ -453,7 +474,8 @@ Si existe un solo parámetro, puedes omitir los paréntesis.
 const porDos = num => num*2
 ```
 
-Retorno implícito
+#### Retorno implícito
+
 Las funciones flecha tienen un retorno implícito, es decir, se puede omitir la palabra reservada return, y que el código sea escrito en una sola línea.
 
 ```
@@ -474,7 +496,8 @@ const suma = (num1, num2) => (
 )
 ```
 
-Promesas
+### Promesas
+
 Una promesa es una forma de manejar el asincronismo en JavaScript. Si aún no sabes en qué consiste el asincronismo, no te preocupes, existe un curso completo de este tema.
 
 Solamente ten presente que la clase Promise y sus métodos then y catch fueron añadidos en ES6, por un problema del manejo del asincronismo con funciones desencadenantes, llamado Callback Hell{target="\_blank"}.
@@ -499,7 +522,8 @@ promesa
 
 Las siguientes características de ES6 que aprenderás son: sintaxis de clases, módulos y generadores.
 
-Clases en JavaScript
+### Clases en JavaScript
+
 La palabra reservada class es una forma para crear clases y manejar la herencia en JavaScript, permitiendo resolver problemas con el paradigma de programación orientada a objetos (POO).
 
 La estructura de clases en JavaScript consiste en:
@@ -530,7 +554,8 @@ const calculadora = new Calculator()
 calculadora.suma(2,2) //4
 ```
 
-Módulos ECMAScript
+### Módulos ECMAScript
+
 Para que JavaScript sea más ordenada, legible y mantenible; ES6 introduce una forma de compartir código entre los archivos de manera modular. Esto involucra exportar funciones o variables de un archivo, e importarlas en otros archivos donde se necesite.
 
 Para explicar cómo funciona las exportaciones e importaciones de código, debes tener mínimo dos archivos, uno para exportar las funcionalidades y otro que las importe para ejecutarlas.
@@ -553,7 +578,8 @@ const add = (x,y) => {
 export { add, otherFunction, ... }
 ```
 
-Importaciones de código
+#### Importaciones de código
+
 Las importaciones de código consiste en usar funciones o variables de otros archivos mediante la palabra reservada import, que deberán estar siempre lo más arriba del archivo y utilizando el mismo nombre que el archivo original. Existen dos formas de exportar, antes de declarar la funcionalidad, o entre llaves {}.
 
 Por ejemplo, importamos la función add del archivo math_function.js para utilizarla en un archivo main.js.
@@ -585,7 +611,8 @@ myMathModule.otherFunction()
 ...
 ```
 
-Exportaciones por defecto
+#### Exportaciones por defecto
+
 Si solo UN valor será exportado, entonces se puede utilizar export default. De esta manera no es necesario las llaves {} al exportar e importar.
 
 ```
@@ -612,7 +639,8 @@ const add  = (x,y) => {
 export default add
 ```
 
-Importaciones por defecto
+#### Importaciones por defecto
+
 Si únicamente UN valor será impotado, entonces se puede utilizar cualquier nombre en la importación. De esta manera no es necesario las llaves {}.
 
 ```
@@ -624,7 +652,8 @@ import cualquierNombre from './math_functions.js'
 
 Sin embargo, es recomendable utilizar siempre el nombre de la función, para evitar confusiones.
 
-Combinar ambos tipos de exportaciones e importaciones
+#### Combinar ambos tipos de exportaciones e importaciones
+
 Teniendo las consideraciones de importaciones y exportaciones, nombradas y por defecto, entonces podemos combinarlas en un mismo archivo.
 
 ```
@@ -638,16 +667,17 @@ export default myFunction
 import myFunction, { myExport } from "/module.js"
 ```
 
-Generadores
+### Generadores
+
 Los generadores son funciones que devuelven solamente valor en cada invocación.
 
 Su sintaxis es la siguiente:
 
-La palabra reservada function\* (con el asterisco al final).
-La palabra reservada yield que hace referencia al valor retornado cada vez que se invoque, recordando el valor anterior.
-Crear una variable a partir de la función generadora.
-El método next devuelve un objeto que contiene una propiedad value con cada valor de yield; y otra propiedad done con el valor true o false si el generador ha terminado.
-Si el generador se lo invoca y ha retornado todos sus valores de yield, entonces devolverá el objeto con las propiedades value con undefined y un done con true.
+- La palabra reservada function\* (con el asterisco al final).
+- La palabra reservada yield que hace referencia al valor retornado cada vez que se invoque, recordando el valor anterior.
+- Crear una variable a partir de la función generadora.
+- El método next devuelve un objeto que contiene una propiedad value con cada valor de yield; y otra propiedad done con el valor true o false si el generador ha terminado.
+  Si el generador se lo invoca y ha retornado todos sus valores de yield, entonces devolverá el objeto con las propiedades value con undefined y un done con true.
 
 ```
 // Declaración
@@ -690,12 +720,14 @@ generador.next() // {value: undefined, done: true}
 
 La siguiente versión de ECMAScript fue publicada en 2016. Las siguientes características de ES7 o ES2016 que aprenderás son: el método includes y el operador de potenciación.
 
-Método includes
+### Método includes
+
 El método includes determina si un array o string incluye un determinado elemento. Devuelve true o false, si existe o no respectivamente.
 
 Este método recibe dos argumentos:
 
-El elemento a comparar.
+#### El elemento a comparar.
+
 El índice inicial desde donde comparar hasta el último elemento.
 Índices positivos y negativos
 Los índices positivos comienzan desde 0 hasta la longitud total menos uno, de izquierda a derecha del array.
@@ -710,7 +742,8 @@ Los índices negativos comienzan desde -1 hasta el negativo de la longitud total
 [-lenght, ...,  -3, -2, -1]
 ```
 
-Ejemplos utilizando el método includes
+#### Ejemplos utilizando el método includes
+
 El método includes se utiliza para arrays y strings. El método es sensible a mayúsculas, minúsculas y espacios.
 
 ```
@@ -733,7 +766,8 @@ frutas.includes("piña", -1) // false
 frutas[0].includes("man") // true
 ```
 
-Operador de potenciación
+### Operador de potenciación
+
 El operador de potenciación (exponential operator) consiste en elevar una base a un exponente utilizando el doble asterisco (\*\*).
 
 ```
@@ -757,10 +791,13 @@ La siguiente versión de ECMAScript fue publicada en 2017 y las características
 Métodos de transformación de objetos a arrays
 Rellenar un string
 Trailing commas
-Métodos de transformación de objetos a arrays
+
+### Métodos de transformación de objetos a arrays
+
 Los métodos de transformación de objetos a arrays sirven para obtener la información de las propiedades, sus valores o ambas.
 
-Obtener los pares de valor de un objeto en un array
+#### Obtener los pares de valor de un objeto en un array
+
 Object.entries() devuelve un array con las entries en forma [propiedad, valor] del objeto enviado como argumento.
 
 ```
@@ -780,7 +817,8 @@ Object.entries(usuario)
 */
 ```
 
-Obtener las propiedades de un objeto en un array
+#### Obtener las propiedades de un objeto en un array
+
 Object.keys() devuelve un array con las propiedades (keys) del objeto enviado como argumento.
 
 ```
@@ -794,7 +832,8 @@ Object.keys(usuario)
 // [ 'name', 'email', 'age' ]
 ```
 
-Obtener los valores de un objeto en un array
+#### Obtener los valores de un objeto en un array
+
 Object.values() devuelve un array con los valores de cada propiedad del objeto enviado como argumento.
 
 ```
@@ -808,7 +847,8 @@ Object.values(usuario)
 // [ 'Andres', 'andres@correo.com', 23 ]
 ```
 
-Cómo rellenar un string o padding
+### Cómo rellenar un string o padding
+
 El padding consiste en rellenar un string por el principio o por el final, con el carácter especificado, repetido hasta que complete la longitud máxima.
 
 Este método recibe dos argumentos:
@@ -817,7 +857,8 @@ La longitud máxima a rellenar, incluyendo el string inicial.
 El string para rellenar, por defecto, es un espacio.
 Si la longitud a rellenar es menor que la longitud del string actual, entonces no agregará nada.
 
-Método padStart
+#### Método padStart
+
 El método padStart completa un string con otro string en el inicio hasta tener un total de caracteres especificado.
 
 ```
@@ -828,7 +869,8 @@ El método padStart completa un string con otro string en el inicio hasta tener 
 'abc'.padStart(1) // "abc"
 ```
 
-Método padEnd
+#### Método padEnd
+
 El método padEnd completa un string con otro string en el final hasta tener un total de caracteres especificado.
 
 ```
@@ -838,7 +880,8 @@ El método padEnd completa un string con otro string en el final hasta tener un 
 'abc'.padEnd(1) // "abc"
 ```
 
-Trailing commas
+### Trailing commas
+
 Las trailing commas consisten en comas al final de objetos o arrays que faciliten añadir nuevos elementos y evitar errores de sintaxis.
 
 ```
@@ -886,7 +929,8 @@ async function asyncFunction () {
 
 La siguiente versión de ECMAScript fue publicada en 2018. Aprenderás sobre: parámetro rest, propiedades de propagación, método finally para promesas y expresiones regulares.
 
-Qué son los Parámetros rest
+### Qué son los Parámetros rest
+
 Los parámetros rest consisten en agrupar el residuo de elementos mediante la sintaxis de tres puntos (...) seguido de una variable que contendrá los elementos en un array.
 
 Esta característica sirve para crear funciones que acepten cualquier número de argumentos para agruparlos en un array.
@@ -894,7 +938,7 @@ Esta característica sirve para crear funciones que acepten cualquier número de
 ```
 function hola (primero, segundo, ...resto) {
   console.log(primero, segundo)  // 1 2
-  console.log(resto) // [3,4,5,6]
+  console.log(resto) // [3,4,5]
 }
 
 hola(1,2,3,4,5)
@@ -911,7 +955,7 @@ const objeto = {
 const array = [0,1,2,3,4,5]
 
 const {plataforma, ...usuario} = objeto
-cons [cero, ...positivos] = array
+const [cero, ...positivos] = array
 
 usuario // { nombre: 'Andres', age: 23 }
 positivos // [ 1, 2, 3, 4, 5 ]
@@ -924,7 +968,8 @@ function hola (primero, ...rest, ultimo) { ... }
 // SyntaxError: Rest element must be last element.
 ```
 
-Diferencias entre el parámetro rest y el operador de propagación
+#### Diferencias entre el parámetro rest y el operador de propagación
+
 Aunque el parámetro rest y el operador de propagación utilicen la misma sintaxis, son diferentes. El parámetro rest agrupa el residuo de elementos y siempre debe estar en la última posición, mientras que el operador de propagación expande los elementos de un iterable en un array y no importa en que lugar esté situado.
 
 ```
@@ -939,7 +984,8 @@ hola(...array, "final") //<- Operador de propagación
 //Lo mismo que hacer -> hola(1,2,3,4,5, "final")
 ```
 
-Propiedades de propagación
+### Propiedades de propagación
+
 Las propiedades de propagación consisten en expandir las propiedades de un objeto utilizando el spread operator. Sirve para crear nuevos objetos a partir de otros.
 
 ```
@@ -954,7 +1000,8 @@ const usuario = {
 }
 ```
 
-Crear copias de objetos utilizando las propiedades de propagación
+#### Crear copias de objetos utilizando las propiedades de propagación
+
 Semenjante a crear copias de arrays utilizando el operador de propagación, se puede realizar copias de objetos en un solo nivel mediante las propiedades de propagación. De esta manera el segundo objeto tendrá una referencia en memoria diferente al original.
 
 ```
@@ -966,7 +1013,8 @@ objetoReferencia === objetoOriginal // true
 objetoOriginal === objetoCopia // false
 ```
 
-Método finally en promesas
+### Método finally en promesas
+
 El método finally para promesas consiste en ejecutar código después que una promesa haya sido ejecutada como resuelta o rechazada.
 
 ```
@@ -976,7 +1024,8 @@ promesa()
     .finally( () => console.log("Finalizado") ) // Código final
 ```
 
-Expresiones regulares
+### Expresiones regulares
+
 Las expresiones regulares o RegEx (regular expresions) son patrones de búsqueda y manipulación de cadenas de caracteres increíblemente potente y están presentes en todos los lenguajes de programación. En JavaScript se crea estre patrón entre barras inclinadas (/patrón/) y se utiliza métodos para hacer coincidir la búsqueda.
 
 ```
@@ -990,10 +1039,12 @@ Este es un tema extenso, por lo que te recomiendo seguir el curso y leer los mé
 
 La siguiente versión de ECMAScript fue publicada en 2019. A continuación aprenderás sobre aplanamiento de arrays, eliminar espacios en blanco de un string y la propiedad description del tipo symbol.
 
-Qué es el aplanamiento de arrays
+### Qué es el aplanamiento de arrays
+
 El aplanamiento consiste en transformar un array de arrays a uno de una sola dimensión. Los métodos flat y flatMap permitirán realizar el aplanamiento.
 
-Método flat
+#### Método flat
+
 El método flat devuelve un array donde los sub-arrays han sido propagados hasta una profundidad especificada.
 
 Este método es inmutable, es decir, retorna un nuevo array con los cambios y no cambia el array original.
@@ -1020,7 +1071,8 @@ const result4 = array4.flat(Infinity)
 result4// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 
-Método flatMap
+#### Método flatMap
+
 El método flatMap es una combinación de los métodos map y flat. Primero realiza la iteración de los elementos del array (como si fuera map), y después los aplana en una sola profundidad (como si fuera flat).
 
 Este método es inmutable, es decir, retorna un nuevo array con los cambios y no cambia el array original.
@@ -1047,7 +1099,8 @@ numbers2.flatMap(number => [number *2])
 // \* Recuerda: NaN = No a Number
 ```
 
-Eliminar espacios en blanco de un string
+### Eliminar espacios en blanco de un string
+
 Existen tres métodos para eliminar espacios en blanco de un string:
 
 - El método trim elimina los espacios en blanco al inicio y al final.
@@ -1065,7 +1118,8 @@ result2 // 'hola '
 result3 // ' hola'
 ```
 
-Parámetro opcional de catch
+### Parámetro opcional de catch
+
 El parámetro opcional de catch permite omitir el error si es necesario, para que esté obligatorio.
 
 ```
@@ -1082,7 +1136,8 @@ try {
 }
 ```
 
-Cómo transformar un array de arrays en un objeto
+#### Cómo transformar un array de arrays en un objeto
+
 Object.fromEntries() devuelve un objeto a partir de un array donde sus elementos son las entries en forma [propiedad, valor].
 
 Se considera la operación inversa de Object.entries().
@@ -1105,7 +1160,8 @@ age: 23
 _/
 ```
 
-Propiedad description de los tipos symbol
+### Propiedad description de los tipos symbol
+
 Ahora los tipos primitivos symbol tienen una propiedad description que sirve para mostrar su valor.
 
 ```
@@ -1119,7 +1175,8 @@ nombre.description // 'Andres'
 
 La siguiente versión de ECMAScript fue publicada en 2020 y ahora conocerás sobre la importación dinámica.
 
-Qué es la importación dinámica
+### Qué es la importación dinámica
+
 La importación dinámica consiste en cargar los módulos cuando el usuario los vaya a utilizar, y no al iniciar la aplicación. Esto permite que la página web sea más rápida, porque descarga menos recursos.
 
 La expresión import() permite manejar módulos dinámicamente, ya que la sintaxis de ECMAScript import ... from ... no lo permite.
@@ -1147,7 +1204,8 @@ async function importarModulo(rutaDelModulo) {
 importarModulo(ruta)
 ```
 
-Ejemplo de importación dinámica
+#### Ejemplo de importación dinámica
+
 De esta manera puedes utilizar una importación dinámica en tu aplicación para desencadenar una descarga de un módulo cuando el usuario lo vaya a utilizar. Por ejemplo, al realizar clic en un botón.
 
 ```
@@ -1165,7 +1223,8 @@ Puedes usar las herramientas de desarrollador para visualizar la descarga de arc
 
 Las siguientes características de ES2020 que aprenderás son: nuevo tipo de dato bigint, método allSettled para promesas, objeto global para cualquier plataforma globalThis, operador Nullish Coalescing (??) y encadenamiento opcional (?.).
 
-En qué consiste Big Int
+### En qué consiste Big Int
+
 El nuevo dato primitivo bigint permite manejar números enteros muy grandes. Existen dos formas de crear un bigint: el número entero seguido de n o mediante la función BigInt
 
 ```
@@ -1195,7 +1254,8 @@ console.log(bigInt) // 9007199254740993n
 
 Se añade la misma cantidad a ambos tipos de datos, sin embargo, el tipo numérico da un resultado diferente al esperado.
 
-Manejo de varias promesas
+### Manejo de varias promesas
+
 Para manejar varias promesas se utiliza Promise.all(), que recibe como argumento un array de promesas.
 
 ```
@@ -1206,10 +1266,11 @@ Promise.all([promesa1, promesa2, promesa3])
 
 El problema es que Promise.all() se resolverá, si y solo si todas las promesas fueron resueltas; si al menos una promesa es rechazada, Promise.all() será rechazada.
 
-```
-Promise.allSettled
+#### Promise.allSettled
+
 Promise.allSettled() permite manejar varias promesas, que devolverá un array de objetos con el estado y el valor de cada promesa, haya sido resuelta o rechazada.
 
+```
 const promesa1 = Promise.reject("Ups promesa 1 falló")
 const promesa2 = Promise.resolve("Promesa 2")
 const promesa3 = Promise.reject("Ups promesa 3 falló")
@@ -1232,7 +1293,8 @@ reason: 'Ups promesa 3 falló'
 
 ¿Debería usarPromise.allSettled() en lugar de Promise.all? No, porque ambas son muy útiles dependiendo cómo quieras manejar tus promesas.
 
-Objeto global para cualquier plataforma
+### Objeto global para cualquier plataforma
+
 El motor de JavaScript, aquel que compila tu archivo y lo convierte en código que entiende el computador, al iniciar la compilación crea un objeto global.
 
 El objeto global proporciona funciones y variables propias e integradas en el lenguaje o el entorno. Dependiendo la plataforma, este objeto global tendrá un nombre diferente.
@@ -1253,7 +1315,8 @@ window === globalThis // true
 global === globalThis // true
 ```
 
-Operador Nullish Coalescing
+### Operador Nullish Coalescing
+
 El operador nullish coalescing (??) consiste en evaluar una variable si es undefined o null para asignarle un valor.
 
 El siguiente ejemplo se lee como: ¿usuario.name es undefined o null? Si es así, asígnale un valor por defecto "Andres", caso contrario asigna el valor de usuario.name.
@@ -1269,7 +1332,8 @@ console.log(nombre1) // 'Andres'
 console.log(nombre2) // 'Juan'
 ```
 
-Diferencia entre el operador OR y el Nullish coalescing
+#### Diferencia entre el operador OR y el Nullish coalescing
+
 El operador OR (||) evalúa un valor falsey. Un valor falsy es aquel que es falso en un contexto booleano, estos son: 0, "", false, NaN, undefined o null.
 
 Puede que recibas una variable con un valor falsy que necesites asignarle a otra variable. Si evalúas con el operador OR, este lo cambiará, provocando un resultado erróneo.
@@ -1284,7 +1348,8 @@ orId // 'Sin id'
 nullishId // 0
 ```
 
-Encadenamiento opcional
+### Encadenamiento opcional
+
 Cuando intentas acceder a propiedades de un objeto que no existen, JavaScript te retornará un undefined.
 
 ```
@@ -1302,7 +1367,8 @@ console.log(usuario.redes.facebook)
 
 Es como intentar ejecutar undefined.facebook, lo cuál es un error de tipo, debido a que undefined no es un objeto.
 
-Definición de encadenamiento opcional
+#### Definición de encadenamiento opcional
+
 El encadenamiento opcional u optional chaining (?.) detiene la evaluación del objeto cuando el valor es undefined o null antes del ?., retornando undefined sin detener el programa por un error.
 
 ```
@@ -1313,7 +1379,8 @@ console.log(usuario.redes?.facebook)
 
 ¿Pero por qué usaría propiedades de un objeto vacío? Cuando realizas peticiones, el objeto no contiene la información correspondiente, por ende, necesitas que el programa no colapse hasta que lleguen los datos y puedas utilizarlos.
 
-Evita el abuso del encadenamiento opcional
+### Evita el abuso del encadenamiento opcional
+
 El encadenamiento opcional se debe utilizar únicamente cuando probablemente un valor no exista.
 
 Por ejemplo, en un objeto usuario que siempre existe, pero la propiedad redes es opcional, entonces se debería escribir usuario.redes?.facebook y no usuario?.redes?.facebook.
@@ -1324,7 +1391,8 @@ Si abusas del encadenamiento opcional y existe un error en usuario, el programa 
 
 La siguiente versión de ECMAScript fue publicada en 2021. A continuación aprenderás acerca del método replaceAll, métodos privados en clases, Promise.any, referencias débiles y nuevos operadores de asignación.
 
-Método replaceAll
+### Método replaceAll
+
 El método replaceAll retorna un nuevo string, reemplazando todos los elementos por otro.
 
 Este método recibe dos argumentos:
@@ -1346,7 +1414,8 @@ mensaje.replaceAll(/a/g, "*")
 // 'J*v*Script es m*r*villoso, con J*v*Script puedo cre*r el futuro de l* web.'
 ```
 
-Métodos privados de clases
+### Métodos privados de clases
+
 Por defecto, las propiedades y métodos de una clase en JavaScript son públicas, es decir, se puede acceder a ellos fuera de la clase.
 
 Los métodos privados consiste en limitar el acceso a propiedades y métodos agregando el caracter numeral (#).
@@ -1365,9 +1434,13 @@ class Clase {
 const clase = new Clase()
 clase.public("Hola")  // 'Hola'
 clase.private("Hola") // TypeError: clase.private is not a function
-Promise.any
+```
+
+### Promise.any
+
 Promise.any() es otra forma de manejar varias promesas, que retornará la primera promesa que sea resuelta y se rechazará si todas las promesas son rechazadas.
 
+```
 const promesa1 = Promise.reject("Ups promesa 1 falló")
 const promesa2 = Promise.reject("Ups promesa 2 falló")
 const promesa3 = Promise.resolve("Promesa 3")
@@ -1378,7 +1451,8 @@ Promise.any([promesa1, promesa2, promesa3])
     .catch(error => console.log(error))
 ```
 
-Referencias débiles
+### Referencias débiles
+
 Un objeto WeakRef consiste en mantener una referencia débil a otro objeto, para evitar que ese objeto sea eliminado por el Garbage Collection{target="\_blank"}.
 
 ```
@@ -1390,12 +1464,13 @@ class Clase{
 }
 ```
 
-Nuevos operadores de asignación
+### Nuevos operadores de asignación
+
 En ES2021 se agregaron tres operadores de asignación:
 
-Asignación AND (&&=), en caso de cumplirse una verdad, asigna un valor a una variable.
-Asignación OR (||=), en caso de cumplirse una falsedad, asigna un valor a una variable.
-Asignación Nullish (??=), en caso de cumplirse undefined o null, asigna un valor a una variable.
+- Asignación AND (&&=), en caso de cumplirse una verdad, asigna un valor a una variable.
+- Asignación OR (||=), en caso de cumplirse una falsedad, asigna un valor a una variable.
+- Asignación Nullish (??=), en caso de cumplirse undefined o null, asigna un valor a una variable.
 
 ```
 // Antes de ES2021
