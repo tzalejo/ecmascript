@@ -2,7 +2,7 @@
   "name": "ecmascript",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "http-server ./src/es11 -p 9095 -o",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
